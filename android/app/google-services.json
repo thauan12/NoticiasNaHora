@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "603856732437",
+    "project_id": "noticiasnahora-1dcee",
+    "storage_bucket": "noticiasnahora-1dcee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603856732437:android:4ce153edf300327adfa91c",
+        "android_client_info": {
+          "package_name": "com.example.noticias_na_hora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603856732437-dpkhk0t8uhjbvvcbv5gobpsdrb7rg3fr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdIQzM8UEl2zZjyBdqY1lSSpMYwjDtPJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603856732437-dpkhk0t8uhjbvvcbv5gobpsdrb7rg3fr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "603856732437-no24q3vobjsc11vns6uqg9a6gu5dhn9k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noticiasNaHora"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603856732437:android:2b14af1436c1727fdfa91c",
+        "android_client_info": {
+          "package_name": "com.example.noticiasnahora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603856732437-dpkhk0t8uhjbvvcbv5gobpsdrb7rg3fr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdIQzM8UEl2zZjyBdqY1lSSpMYwjDtPJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603856732437-dpkhk0t8uhjbvvcbv5gobpsdrb7rg3fr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "603856732437-no24q3vobjsc11vns6uqg9a6gu5dhn9k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noticiasNaHora"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
