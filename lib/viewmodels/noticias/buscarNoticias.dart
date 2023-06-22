@@ -15,7 +15,7 @@ Future<void> iniciarBuscaPeriodica() async {
   await buscarNoticias();
 
   // Agendar a busca de notícias a cada período de 1 hora
-  _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+  _timer = Timer.periodic(Duration(minutes: 30), (Timer timer) {
     buscarNoticias();
   });
 }
@@ -35,7 +35,6 @@ Future<void> pararBuscaPeriodica() async {
         final Map<String, dynamic>? data = json.decode(response.body);
         if (data != null) {
           final noticias = Noticias.fromJson(data);
-
           await salvarNoticiasNoFirebase(noticias.listaNoticias);
 
           return BuscaDeNoticias(noticias: noticias.listaNoticias);
@@ -59,7 +58,7 @@ Future<void> salvarNoticiasNoFirebase(List<Noticia> noticias) async {
   for (var noticia in noticias) {
     await noticiasRef.add({
       'titulo': noticia.titulo,
-      'dataCriacao': noticia.dataCriacao.toString(),
+      'dataCriacao': noticia.dataCriacao?.toIso8601String(),
       'autor': noticia.autor,
       'pais': noticia.pais,
       'linguagem': noticia.linguagem,

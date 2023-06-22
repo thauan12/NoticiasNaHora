@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Noticia {
   String titulo;
-  DateTime dataCriacao;
+  DateTime? dataCriacao;
   String autor;
   String pais;
   String linguagem;
@@ -15,7 +15,7 @@ class Noticia {
 
   Noticia({
     required this.titulo,
-    required this.dataCriacao,
+    this.dataCriacao,
     required this.autor,
     required this.pais,
     required this.linguagem,
@@ -29,7 +29,7 @@ class Noticia {
   factory Noticia.fromJson(Map<String, dynamic> json) {
     return Noticia(
       titulo: json['title'] as String? ?? 'N/A',
-      dataCriacao: DateTime.parse(json['publishedAt'] as String? ?? ''),
+      dataCriacao: DateTime.parse(json['publishedAt'] as String? ?? '')!,
       autor: json['author'] as String? ?? 'N/A',
       pais: json['country'] as String? ?? 'N/A',
       linguagem: json['language'] as String? ?? 'N/A',

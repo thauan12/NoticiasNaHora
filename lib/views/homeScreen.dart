@@ -11,17 +11,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _paginaSelecionada = 0;
+  int _paginaSelecionada = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
         index: _paginaSelecionada,
-        children: const [
+        children: [
           ProcurarPage(),
-          NoticiaScreen(),
-          PessoalPage(),
+          const NoticiaScreen(),
+          const PessoalPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -21,9 +21,14 @@ class _NoticiaScreenState extends State<NoticiaScreen> {
 
   Future<void> _buscarNoticias() async {
     try {
-      final noticias = await buscarDadosNoFirebase();
+      final buscaDeNoticias = BuscaDeNoticias(noticias: []);
+      await buscaDeNoticias.buscarNoticias();
+
+      final noticiasApi = buscaDeNoticias.noticias;
+      final noticiasFirebase = await buscarDadosNoFirebase();
+
       setState(() {
-        _noticias = noticias;
+        _noticias = [...noticiasApi, ...noticiasFirebase];
       });
     } catch (e) {
       showDialog(
@@ -51,7 +56,6 @@ class _NoticiaScreenState extends State<NoticiaScreen> {
             Noticia noticia = _noticias[index];
             return InkWell(
               onTap: () {
-                // Redirecionar para a página de notícia detalhada
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -64,19 +68,39 @@ class _NoticiaScreenState extends State<NoticiaScreen> {
                 elevation: 4,
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Column(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (noticia.urlImagem.isNotEmpty)
-                        Image.network(noticia.urlImagem),
-                      if (noticia.urlImagem.isEmpty)
-                        Image.asset('imagens/assets/News-Logo.png'),
-                      const SizedBox(height: 8),
-                      Text(noticia.titulo, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 4),
-                      Text(noticia.dataCriacao.toString()),
-                      Text(noticia.autor),
-                      Text(noticia.descricao),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.3, // 30% da largura disponível
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: noticia.urlImagem.isNotEmpty
+                              ? Image.network(
+                            noticia.urlImagem,
+                            fit: BoxFit.cover,
+                          )
+                              : Image.asset(
+                            'imagens/assets/News-Logo.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              noticia.titulo,
+                              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(noticia.dataCriacao.toString()),
+                            Text(noticia.autor),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
