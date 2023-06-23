@@ -38,7 +38,8 @@ class _ProcurarPageState extends State<ProcurarPage> {
                   ),
                   SizedBox(height: 4),
                   Text(
-                    noticia.dataCriacao.toString(), // Ajuste conforme a formatação desejada
+                    noticia.dataCriacao
+                        .toString(), // Ajuste conforme a formatação desejada
                   ),
                   SizedBox(height: 4),
                   Text(
@@ -55,32 +56,38 @@ class _ProcurarPageState extends State<ProcurarPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          TextField(
-            onChanged: (value) {
-              setState(() {
-                _titulo = value;
-              });
-              _realizarProcura(_titulo);
-            },
-            decoration: InputDecoration(
-              labelText: 'Digite o título',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          SizedBox(height: 16),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _resultados.length,
-              itemBuilder: (context, index) {
-                return _buildResultadoCard(_resultados[index]);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Procurar'),
+        centerTitle: true,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              onChanged: (value) {
+                setState(() {
+                  _titulo = value;
+                });
+                _realizarProcura(_titulo);
               },
+              decoration: InputDecoration(
+                labelText: 'Digite o título',
+                border: OutlineInputBorder(),
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 16),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _resultados.length,
+                itemBuilder: (context, index) {
+                  return _buildResultadoCard(_resultados[index]);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

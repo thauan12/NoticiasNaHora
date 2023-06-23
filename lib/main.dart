@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:noticiasnahora/models/noticia.dart';
 import 'package:noticiasnahora/views/homeLogar.dart';
 import 'package:noticiasnahora/views/loginScreen.dart';
+import 'package:noticiasnahora/views/mapsPage.dart';
 import 'package:noticiasnahora/views/noticiaDetalhada.dart';
 import 'viewmodels/firebase/utils/firebase_options.dart';
 import 'views/homeScreen.dart';
@@ -24,6 +25,7 @@ void main() async {
       GetPage(name: '/register', page: () => const RegisterPage()),
       GetPage(name: '/home', page: () => const HomeScreen()),
       GetPage(name: '/noticia', page: () => NoticiaDetalhadaScreen()),
+      GetPage(name: '/sede', page: () => SedeLocalization()),
 ],
     theme: ThemeData(
         appBarTheme: const AppBarTheme(

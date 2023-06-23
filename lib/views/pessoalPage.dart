@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:noticiasnahora/viewmodels/firebase/autentica%C3%A7%C3%A3o.dart';
+import 'package:noticiasnahora/views/mapsPage.dart';
 
 class PessoalPage extends StatefulWidget {
   const PessoalPage({Key? key}) : super(key: key);
@@ -218,6 +219,16 @@ class _PessoalPageState extends State<PessoalPage> {
                     ],
                   );
                 },
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.location_on),
+            title: Text('Sede da Empresa'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SedeLocalization()),
               );
             },
           ),

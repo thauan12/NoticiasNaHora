@@ -26,7 +26,7 @@ Future<void> pararBuscaPeriodica() async {
 }
 
   Future<BuscaDeNoticias> buscarNoticias() async {
-    final String apiKey = '912fc586c2894ba88b6f99bed17af924';
+    final String apiKey = '';
     try {
       final response = await http.get(Uri.parse(
           'https://newsapi.org/v2/top-headlines?country=br&apiKey=$apiKey'));
